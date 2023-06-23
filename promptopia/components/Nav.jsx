@@ -48,7 +48,7 @@ const Nav = () => {
 
                             <Link href = "/profile">
                                 <Image 
-                                    src = "/assets/images/logo.svg"
+                                    src = {session?.user.image}
                                     width = { 37 }
                                     height = { 37 }
                                     className = 'rounded-full'
@@ -62,14 +62,16 @@ const Nav = () => {
                             { 
                                 providers && 
                                     Object.values(providers).map(provider => { 
-                                        <button 
-                                            type = 'button' 
-                                            key = { provider.name }
-                                            onClick = { () => { signIn(provider.id)}}
-                                            className = "black_btn"
-                                        >
-                                            Sign In
-                                        </button>
+                                        return ( 
+                                            <button
+                                                type = "button"
+                                                key = { provider.name }
+                                                onClick = { () => { signIn(provider.id)} }
+                                                className = 'black_btn'
+                                            >
+                                                Sign In
+                                            </button>
+                                        )
                                     })
                             }
                         </>
@@ -84,7 +86,7 @@ const Nav = () => {
                     ( 
                         <div className = 'flex'>
                             <Image 
-                                src = "/assets/images/logo.svg"
+                                src = { session?.user.image }
                                 width = { 37 }
                                 height = { 37 }
                                 className = 'rounded-full'
@@ -125,14 +127,16 @@ const Nav = () => {
                             { 
                                 providers && 
                                     Object.values(providers).map(provider => { 
-                                        <button 
+                                        return ( 
+                                            <button 
                                             type = 'button' 
                                             key = { provider.name }
                                             onClick = { () => { signIn(provider.id)}}
                                             className = "black_btn"
-                                        >
-                                            Sign In
-                                        </button>
+                                            >
+                                                Sign In
+                                            </button>
+                                        )
                                     })
                             }
                         </>
